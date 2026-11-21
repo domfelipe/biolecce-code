@@ -55,9 +55,9 @@ import { CodingPlanUpgradeDialogProvider } from "@/settings/CodingPlanUpgradeDia
 import { RewardsProvider } from "@/rewards/RewardsProvider.js";
 import {
   CredentialStoreRecovery,
-  WelcomeScreen,
   type LoginCompleteReason,
 } from "@/WelcomeScreen.js";
+import { BiolecceAutoLogin } from "@/login/BiolecceAutoLogin.js";
 import { useCredentialStoreRecovery } from "@/hooks/useCredentials.js";
 import { setDefaultFileDisplayBasePath } from "@/lib/fileDisplay.js";
 import { readRendererLaunchTimings, shouldReportLaunchToInput } from "@/lib/launchToInputReport.js";
@@ -1552,7 +1552,7 @@ function RootInner({
         {requestSecurityBridgeNode}
         {remoteConnectionDialog}
         {directoryBrowserDialog}
-        <WelcomeScreen onComplete={handleWelcomeScreenComplete} />
+        <BiolecceAutoLogin onComplete={handleWelcomeScreenComplete} />
       </RootShell>
     );
   }

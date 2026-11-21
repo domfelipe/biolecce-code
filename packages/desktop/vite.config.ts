@@ -229,6 +229,10 @@ export default defineConfig(({ command, mode }) => {
       __ZCODE_PRODUCT_FLAVOR__: JSON.stringify(zcodeProductFlavor),
       ...buildTimeConfigDefines,
       __ZCODE_LOCAL_DEVELOPMENT_RUNTIME__: JSON.stringify(mode !== "production"),
+      // Biolecce: chave do Biolecce Flash embutida no build (vem do .env.local, fora do git).
+      "import.meta.env.VITE_BIOLECCE_API_KEY": JSON.stringify(
+        env.BIOLECCE_API_KEY ?? process.env.BIOLECCE_API_KEY ?? "",
+      ),
       "import.meta.env.VITE_ZCODE_BASE_URL": JSON.stringify(zcodeEndpointOrigin),
       // 兼容旧 renderer 读取名；新代码统一读 VITE_ZCODE_BASE_URL。
       "import.meta.env.VITE_ZCODE_ENDPOINT_ORIGIN": JSON.stringify(zcodeEndpointOrigin),
