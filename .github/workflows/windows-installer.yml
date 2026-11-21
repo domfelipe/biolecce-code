@@ -1,0 +1,52 @@
+name: Instalador Windows (Biolecce Code)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [biolecce]
+    paths:
+      - ".github/workflows/windows-installer.yml"
+    tags: ["v*"]
+
+concurrency:
+  group: windows-installer-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 120
+    env:
+      COREPACK_ENABLE_PROJECT_SPEC: "0"
+      HUSKY: "0"
+      CI: "true"
+      BIOLECCE_API_KEY: ${{ secrets.BIOLECCE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.14.0
+          cache: pnpm
+
+      - name: Instalar dependências
+        run: pnpm install --frozen-lockfile
+
+      - name: Preparar o projeto
+        run: pnpm bootstrap
+
+      - name: Gerar instalador (.exe x64)
+        run: pnpm bundle:desktop -- --os win --arch x64
+
+      - name: Publicar instalador
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolecce-code-windows-x64
+          path: |
+            packages/desktop/dist/*.exe
+          if-no-files-found: error
+          retention-days: 14
