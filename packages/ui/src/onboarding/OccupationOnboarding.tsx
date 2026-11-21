@@ -82,7 +82,9 @@ export function OccupationOnboarding({
     loadDeviceMid,
     update,
   });
-  const onboardingVisible = requested || (needsOnboarding === true && !dismissed);
+  // Biolecce: o questionário de boas-vindas do Z.ai não abre sozinho; só pelo menu de ajustes.
+  void dismissed;
+  const onboardingVisible = requested;
   const captureEnd = useOnboardingTelemetry({
     platform,
     visible:
