@@ -54,10 +54,10 @@ import { setPendingSettingsSectionIntent } from "@/lib/settingsNavigation.js";
 import { CodingPlanUpgradeDialogProvider } from "@/settings/CodingPlanUpgradeDialogProvider.js";
 import { RewardsProvider } from "@/rewards/RewardsProvider.js";
 import {
+  BiolecceAutoLogin,
   CredentialStoreRecovery,
   type LoginCompleteReason,
 } from "@/WelcomeScreen.js";
-import { BiolecceAutoLogin } from "@/login/BiolecceAutoLogin.js";
 import { useCredentialStoreRecovery } from "@/hooks/useCredentials.js";
 import { setDefaultFileDisplayBasePath } from "@/lib/fileDisplay.js";
 import { readRendererLaunchTimings, shouldReportLaunchToInput } from "@/lib/launchToInputReport.js";

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { BIOLECCE_LEAF_PATH, BIOLECCE_LEAF_VIEWBOX } from "@/components/ui/biolecceLeaf.js";
+import { BIOLECCE_LEAF_PATH, BIOLECCE_LEAF_VIEWBOX } from "@/components/ui/ZCodeAboutLogo.js";
 import { cn } from "@/components/lib/utils.js";
 
 interface RootStartupLoadingProps {

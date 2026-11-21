@@ -5,7 +5,7 @@
  * 手机远控复用同一组件，但继续保留 20px 紧凑标题；桌面草稿首页才按标题自身宽度适配。
  */
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { BIOLECCE_LEAF_PATH } from "@/components/ui/biolecceLeaf.js";
+import { BIOLECCE_LEAF_PATH } from "@/components/ui/ZCodeAboutLogo.js";
 import { cn } from "@/components/lib/utils.js";
 import { useZCodeIntl } from "@/i18n/IntlProvider.js";
 import { useIsOfficeMode } from "@/hooks/useInterfaceMode.js";
