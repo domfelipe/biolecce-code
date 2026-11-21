@@ -88,7 +88,8 @@ export function ProviderTemplatePicker({
       </div>
 
       <div className="space-y-6">
-        {groups.map((group) => (
+        {/* Biolecce: grupo do Zhipu/Z.ai some quando não tem nenhum modelo. */}
+        {groups.filter((group) => group.id === "other" || group.templates.length > 0).map((group) => (
           <section key={group.id} data-provider-template-group={group.id} className="space-y-3">
             <h3 className="text-ui-base font-medium text-foreground-subtle">
               {intl.formatMessage({ id: `settings.modelProvider.templateGroup.${group.id}` })}

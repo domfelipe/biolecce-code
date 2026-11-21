@@ -237,7 +237,8 @@ export function useModelProviderNavigation({
       },
     ];
 
-    return groups;
+    // Biolecce: sem provedores e planos do Z.ai/BigModel/Start Plan; só o Biolecce Flash.
+    return groups.filter((group) => group.id === "custom");
   }, [
     customProviders,
     codingPlanItems,
@@ -252,12 +253,8 @@ export function useModelProviderNavigation({
   ]);
 
   const navigationItems = useMemo(() => {
-    const visibleItems = navigationGroups.flatMap((group) => group.items);
-    const visibleKeys = new Set(visibleItems.map((item) => item.key));
-    return [
-      ...visibleItems,
-      ...connectionModeCodingPlanItems.filter((item) => !visibleKeys.has(item.key)),
-    ];
+    // Biolecce: os modos de conexão dos planos Z.ai ficam fora; a tela abre direto no Biolecce Flash.
+    return navigationGroups.flatMap((group) => group.items);
   }, [connectionModeCodingPlanItems, navigationGroups]);
 
   const selectableNavigationItems = useMemo(
