@@ -395,6 +395,8 @@ import {
   type ConversationSelectionReference,
 } from "@/lib/conversationSelectionReference.js";
 
+const BIOLECCE_SHOW_SCENE_PROMPTS = false as boolean;
+
 export interface SessionPaneProps {
   paneId: string;
   sessionId: string | null;
@@ -6565,7 +6567,9 @@ export function SessionPane({
       ) : null}
       {/* 办公模式显示主动任务推荐；编程模式保留原有小型场景入口。 */}
       {/* 完整视图浮窗只露出输入框，草稿推荐提示不进入浮窗。 */}
-      {isDraft &&
+      {/* Biolecce: atalhos de cena vêm do servidor da Z.ai (em inglês); ficam escondidos. */}
+      {BIOLECCE_SHOW_SCENE_PROMPTS &&
+      isDraft &&
       !isFloatingPresentation &&
       (!isOfficeMode || sharedSettings?.proactiveSuggestionsEnabled === true) ? (
         <ConversationDraftSuggestedPromptsContainer

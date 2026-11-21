@@ -3,7 +3,7 @@ import { SUPPORTED_LOCALES, type Locale, type LocalePreference } from "./protoco
 /** 各语言的本名，用于语言选择 UI；不进 i18n 文案表，任何界面语言下都显示本名。 */
 export const LOCALE_NATIVE_NAMES: Record<Locale, string> = {
   "zh-CN": "中文简体",
-  "en-US": "English",
+  "en-US": "Português (Brasil)",
   "ja-JP": "日本語",
   "ru-RU": "Русский",
   "ko-KR": "한국어",

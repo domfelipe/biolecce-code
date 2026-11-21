@@ -372,6 +372,23 @@ body {
   --color-plugin-node-foreground: var(--color-amber-600);
   --color-plugin-paid-plan-badge: #ffe3c8;
   --color-plugin-paid-plan-badge-foreground: #4b280f;
+  /* Biolecce: tema verde. Neutros puxados para o verde da marca (#173F35 / #71AF5E). */
+  --color-neutral-50: oklch(0.985 0.005 150);
+  --color-neutral-100: oklch(0.967 0.009 150);
+  --color-neutral-200: oklch(0.922 0.014 150);
+  --color-neutral-300: oklch(0.87 0.018 152);
+  --color-neutral-400: oklch(0.708 0.024 155);
+  --color-neutral-500: oklch(0.556 0.026 158);
+  --color-neutral-600: oklch(0.439 0.028 160);
+  --color-neutral-700: oklch(0.371 0.03 162);
+  --color-neutral-800: oklch(0.269 0.028 164);
+  --color-neutral-900: oklch(0.205 0.024 165);
+  --color-neutral-950: oklch(0.15 0.02 165);
+  --color-brand: #3f8a4a;
+  --color-accent: #e8f3e4;
+  --color-sidebar: #eef4ec;
+  --color-background: #f7faf6;
+
 }
 
 .dark {
@@ -549,6 +566,16 @@ body {
   --color-plugin-node-foreground: var(--color-amber-300);
   --color-plugin-paid-plan-badge: #5a341b;
   --color-plugin-paid-plan-badge-foreground: #ffd8b8;
+  /* Biolecce: tema verde escuro. */
+  --color-brand: #71af5e;
+  --color-accent: color-mix(in oklab, #173f35 70%, transparent);
+  --color-sidebar: #0c1a16;
+  --color-background: #10211c;
+  --color-card: #163029;
+  --color-popover: #163029;
+  --color-input: #132a23;
+  --color-input-focused: #0c1a16;
+
 }
 
 .theme-zai-light {
@@ -2445,4 +2472,53 @@ body {
   > :is(.summary-hover-text, :has(.summary-hover-text)):not([data-consecutive-summary-group])
   + :is(.summary-hover-text, :has(.summary-hover-text)):not([data-consecutive-summary-group]) {
   padding-top: 0;
+}
+
+/* Biolecce: tema verde da marca (#173F35 / #71AF5E). O app aplica sempre os temas zai-*,
+   então as cores da Biolecce entram aqui, por cima deles. */
+.theme-zai-light {
+  --color-background: #f6faf4;
+  --color-background-win-alt: #e9f1e6;
+  --color-sidebar: #edf4ea;
+  --color-header: #eef5eb;
+  --color-panel: #eef5eb;
+  --color-tab: #eef5eb;
+  --color-tab-active: #f6faf4;
+  --color-card: #ffffff;
+  --color-popover: #ffffff;
+  --color-popover-header: #eef5eb;
+  --color-input: #ffffff;
+  --color-menu: #ffffff;
+  --color-menu-hover: #e3efdf;
+  --color-secondary: #dfeadb;
+  --color-accent: #e3f0dd;
+  --color-brand: #173f35;
+  --color-primary: #173f35;
+  --color-primary-foreground: #ffffff;
+  --color-interaction-ask-surface: #e3f0dd;
+  --color-interaction-ask-foreground: #173f35;
+}
+
+.theme-zai-dark {
+  --color-background: #0f1f1a;
+  --color-background-win-alt: #1a2e27;
+  --color-sidebar: #0c1915;
+  --color-header: #142822;
+  --color-panel: #142822;
+  --color-tab: #142822;
+  --color-tab-active: #0f1f1a;
+  --color-card: #1a2e27;
+  --color-popover: #1a2e27;
+  --color-popover-header: #142822;
+  --color-input: #1a2e27;
+  --color-menu: #1a2e27;
+  --color-menu-hover: #223b33;
+  --color-secondary: #223b33;
+  --color-accent: #173f35;
+  --color-brand: #71af5e;
+  --color-primary: #71af5e;
+  --color-primary-foreground: #0b1f19;
+  --color-interaction-ask-surface: #173f35;
+  --color-interaction-ask-foreground: #9fd38c;
+  --color-terminal-cursor-accent: #0f1f1a;
 }

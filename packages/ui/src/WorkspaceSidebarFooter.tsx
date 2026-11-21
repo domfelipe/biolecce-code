@@ -58,6 +58,7 @@ import {
 } from "@/WorkspaceSidebarFooterUsageSummary.js";
 
 const DESKTOP_ZOOM_MIN_LEVEL = -3;
+const BIOLECCE_SHOW_ZAI_LOGIN = false as boolean;
 const DESKTOP_ZOOM_MAX_LEVEL = 5;
 
 function getSidebarProfileName(user?: UserInfo | null): string {
@@ -71,7 +72,7 @@ function getSidebarProfileName(user?: UserInfo | null): string {
     return username;
   }
 
-  return "ZCode";
+  return "Biolecce Code";
 }
 
 function getSidebarProfileBadge(
@@ -82,12 +83,14 @@ function getSidebarProfileBadge(
     return getSidebarProfileName(user);
   }
 
-  return formatMessage({ id: "sidebar.profile.notLoggedIn" });
+  // Biolecce: sem conta Z.ai; o rodapé mostra só a marca.
+  void formatMessage;
+  return "Biolecce";
 }
 
 function getAvatarFallbackText(user: UserInfo | null | undefined): string {
-  const source = user?.displayName?.trim() || user?.username?.trim() || "Z";
-  return source[0]?.toUpperCase() ?? "Z";
+  const source = user?.displayName?.trim() || user?.username?.trim() || "B";
+  return source[0]?.toUpperCase() ?? "B";
 }
 
 export const WorkspaceSidebarFooter = memo(function WorkspaceSidebarFooterComponent({
@@ -444,7 +447,8 @@ export const WorkspaceSidebarFooter = memo(function WorkspaceSidebarFooterCompon
                 </Badge>
               </DropdownMenuItem>
             ) : null}
-            {onLogin && !user ? (
+            {/* Biolecce: login Z.ai escondido; o provedor Biolecce Flash já vem configurado. */}
+            {onLogin && !user && BIOLECCE_SHOW_ZAI_LOGIN ? (
               <>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onSelect={onLogin} data-testid={TID_LOGIN_MENU_ITEM}>
