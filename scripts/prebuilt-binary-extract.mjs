@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import {
   chmodSync,
   copyFileSync,
+  existsSync,
   mkdirSync,
   mkdtempSync,
   readFileSync,
@@ -39,6 +40,13 @@ export function extractPrebuiltArchive({ archivePath, archiveExt, extractDir, cw
   mkdirSync(extractDir, { recursive: true });
   if (archiveExt === "zip") {
     if (process.platform === "win32") {
+      // Biolecce: o Expand-Archive do Windows PowerShell 5.1 do runner do GitHub falha
+      // ("ExtractToDirectory" com 3 argumentos). O tar.exe nativo do Windows (bsdtar) abre zip.
+      const systemTar = join(process.env.SystemRoot || "C:\\Windows", "System32", "tar.exe");
+      if (existsSync(systemTar)) {
+        runCommand(systemTar, ["-xf", archivePath, "-C", extractDir]);
+        return;
+      }
       runCommand("powershell.exe", [
         "-NoProfile",
         "-NonInteractive",
