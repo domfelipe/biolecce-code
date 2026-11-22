@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2022
     timeout-minutes: 120
     env:
       COREPACK_ENABLE_PROJECT_SPEC: "0"
